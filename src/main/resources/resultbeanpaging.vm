@@ -1,0 +1,17 @@
+package ${packageResultBean};
+
+import java.util.List;
+
+import ${fqClassName};
+import com.sencha.gxt.data.shared.loader.PagingLoadResultBean;
+
+@SuppressWarnings("serial")
+public class ${className}PagingLoadResultBean extends PagingLoadResultBean<${className}>  {
+
+	public ${className}PagingLoadResultBean(List<${className}> list, int totalLength, int offset) {
+		super(list, totalLength, offset);
+	}
+	protected ${className}PagingLoadResultBean() {
+	    super();
+	}
+}

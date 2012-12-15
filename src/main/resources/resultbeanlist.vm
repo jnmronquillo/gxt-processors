@@ -1,0 +1,16 @@
+package ${packageResultBean};
+
+import java.util.List;
+
+import ${fqClassName};
+import com.sencha.gxt.data.shared.loader.ListLoadResultBean;
+
+@SuppressWarnings("serial")
+public class ${className}ListLoadResultBean extends ListLoadResultBean<${className}> {
+	public ${className}ListLoadResultBean(List<${className}> list) {
+	   super(list);
+	}
+	protected ${className}ListLoadResultBean() {
+	   super();
+	}
+}

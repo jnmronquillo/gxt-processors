@@ -1,0 +1,14 @@
+package ${packageResultProxy};
+
+import java.util.List;
+
+import com.google.web.bindery.requestfactory.shared.ProxyFor;
+import com.google.web.bindery.requestfactory.shared.ValueProxy;
+import com.rhem.server.resultbean.${modelName}PagingLoadResultBean;
+import ${fqClassName};
+import com.sencha.gxt.data.shared.loader.PagingLoadResult;
+
+@ProxyFor(value = ${modelName}PagingLoadResultBean.class)
+public interface ${modelName}PagingLoadResultProxy extends ValueProxy, PagingLoadResult<${className}> {
+	public List<${className}> getData();
+}

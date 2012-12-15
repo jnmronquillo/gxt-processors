@@ -1,0 +1,5 @@
+com.rhem.processors.ResultBeanListProcessor
+com.rhem.processors.ResultBeanPagingProcessor
+com.rhem.processors.ResultProxyListProcessor
+com.rhem.processors.ResultProxyPagingProcessor
+com.rhem.processors.ServiceListProcessor

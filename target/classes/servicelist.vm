@@ -1,0 +1,9 @@
+package ${packageName};
+
+import com.google.web.bindery.requestfactory.shared.RequestFactory;
+
+public interface AppRequestFactory extends RequestFactory {
+#foreach($key in $methods.keySet())
+	public $key $methods.get($key)();
+#end
+}
