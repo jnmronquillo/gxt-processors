@@ -31,6 +31,7 @@ public class ResultProxyListProcessor extends AbstractProcessor {
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations,
 			RoundEnvironment roundEnv) {
+		//Messager messager = processingEnv.getMessager();
 		Filer filer = processingEnv.getFiler();
 		
 		String fqClassName = null;
@@ -47,7 +48,7 @@ public class ResultProxyListProcessor extends AbstractProcessor {
                 packageName = packageElement.getQualifiedName().toString();
                 
                 if(!packageName.matches(".*shared.proxy")){
-                	break;
+                	continue;
                 }
                 
                 fqClassName = classElement.getQualifiedName().toString();
