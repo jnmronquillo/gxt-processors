@@ -8,7 +8,6 @@ import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
-import javax.annotation.processing.Messager;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
@@ -18,7 +17,6 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.persistence.Entity;
-import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
 import org.apache.velocity.Template;
@@ -32,7 +30,6 @@ public class ResultBeanListProcessor extends AbstractProcessor {
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations,
 			RoundEnvironment roundEnv) {
-		Messager messager = processingEnv.getMessager();
 		Filer filer = processingEnv.getFiler();
 		
 		String fqClassName = null;
@@ -79,10 +76,6 @@ public class ResultBeanListProcessor extends AbstractProcessor {
         			} catch (IOException e1) {
         				e1.printStackTrace();
         			}
-
-        			messager.printMessage(
-                            Diagnostic.Kind.NOTE,
-                            "creating source file: " + jfo.toUri());
 
                     Writer writer = null;
         			try {
