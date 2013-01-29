@@ -10,8 +10,6 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.PackageElement;
@@ -25,7 +23,6 @@ import org.apache.velocity.app.VelocityEngine;
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 
 @SupportedAnnotationTypes("com.google.web.bindery.requestfactory.shared.ProxyFor")
-@SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class ResultProxyListProcessor extends AbstractProcessor {
 
 	@Override
