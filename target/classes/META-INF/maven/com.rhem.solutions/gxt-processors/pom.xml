@@ -2,7 +2,24 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.rhem.solutions</groupId>
   <artifactId>gxt-processors</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  
+  <name>GXT processors</name>
+  <description>Annotation processors for GXT and RequestFactory</description>
+  <url></url>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://vivagwt.blogspot.com/2012/12/annotation-processors-for-gxt-and.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <url>https://github.com/poseidonjm/gxt-processors/</url>
+  </scm>
   
   <properties>
     <!-- Convenience property to set the GWT version -->
