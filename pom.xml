@@ -7,7 +7,16 @@
   
   <name>GXT processors</name>
   <description>Annotation processors for GXT and RequestFactory</description>
-  <url></url>
+  <url>https://github.com/poseidonjm/gxt-processors/</url>
+  
+  <developers>
+    <developer>
+      <email>juanrojas@rhemsolutions.com</email>
+      <name>juan m. rojas ronquillo</name>
+      <organization>Rhem Solutions</organization>
+      <organizationUrl>rhemsolutions.com</organizationUrl>
+    </developer>
+  </developers>
   
   <licenses>
     <license>
@@ -20,6 +29,16 @@
   <scm>
     <url>https://github.com/poseidonjm/gxt-processors/</url>
   </scm>
+  
+  <distributionManagement>
+      <repository>
+          <id>nexus-releases</id>
+          <name>Nexus Release Repository</name>
+          <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
+  </distributionManagement>
+  
+  
   
   <properties>
     <!-- Convenience property to set the GWT version -->
@@ -62,6 +81,9 @@
           <compilerArgument>-proc:none</compilerArgument>
         </configuration>
       </plugin>
+<!--       mvn gpg:sign-and-deploy-file -DpomFile=target/gxt-processors-1.0.pom -Dfile=target/gxt-processors-1.0.jar -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=nexus-releases -->
+<!--       mvn gpg:sign-and-deploy-file -DpomFile=target/gxt-processors-1.0.pom -Dfile=target/gxt-processors-1.0-javadoc.jar -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=nexus-releases -->
+<!--       mvn gpg:sign-and-deploy-file -DpomFile=target/gxt-processors-1.0.pom -Dfile=target/gxt-processors-1.0-sources.jar -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=nexus-releases -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
