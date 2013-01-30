@@ -1,4 +1,4 @@
-package com.rhem.processors;
+package com.rhemsolutions.processors;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -22,7 +22,7 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
 @SupportedAnnotationTypes("javax.persistence.Entity")
-public class ResultBeanPagingProcessor extends AbstractProcessor {
+public class ResultBeanListProcessor extends AbstractProcessor {
 
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations,
@@ -65,11 +65,11 @@ public class ResultBeanPagingProcessor extends AbstractProcessor {
                     vc.put("packageResultBean", packageResultBean);
                     vc.put("fqClassName", fqClassName);
 
-                    Template vt = ve.getTemplate("resultbeanpaging.vm");
+                    Template vt = ve.getTemplate("resultbeanlist.vm");
                     
                     JavaFileObject jfo = null;
         			try {
-        				jfo = filer.createSourceFile(fqClassName.replaceFirst("domain", "resultbean") + "PagingLoadResultBean");
+        				jfo = filer.createSourceFile(fqClassName.replaceFirst("domain", "resultbean") + "ListLoadResultBean");
         			} catch (IOException e1) {
         				e1.printStackTrace();
         			}

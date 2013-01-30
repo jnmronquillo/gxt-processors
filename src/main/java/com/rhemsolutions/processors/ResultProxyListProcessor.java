@@ -1,4 +1,4 @@
-package com.rhem.processors;
+package com.rhemsolutions.processors;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -23,12 +23,12 @@ import org.apache.velocity.app.VelocityEngine;
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 
 @SupportedAnnotationTypes("com.google.web.bindery.requestfactory.shared.ProxyFor")
-public class ResultProxyPagingProcessor extends AbstractProcessor {
+public class ResultProxyListProcessor extends AbstractProcessor {
 
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations,
 			RoundEnvironment roundEnv) {
-		
+		//Messager messager = processingEnv.getMessager();
 		Filer filer = processingEnv.getFiler();
 		
 		String fqClassName = null;
@@ -76,11 +76,11 @@ public class ResultProxyPagingProcessor extends AbstractProcessor {
                     vc.put("fqClassName", fqClassName);
                     vc.put("modelName", modelName);
 
-                    Template vt = ve.getTemplate("resultproxypaging.vm");
+                    Template vt = ve.getTemplate("resultproxylist.vm");
                     
                     JavaFileObject jfo = null;
         			try {
-        				jfo = filer.createSourceFile(packageResultProxy+"." + modelName+"PagingLoadResultProxy");
+        				jfo = filer.createSourceFile(packageResultProxy+"." + modelName+"ListLoadResultProxy");
         			} catch (IOException e1) {
         				e1.printStackTrace();
         			}
