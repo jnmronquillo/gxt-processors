@@ -29,7 +29,7 @@
   <scm>
     <url>https://github.com/poseidonjm/gxt-processors/</url>
   </scm>
-  
+<!--   end of gxt-processors-1.0.pom file -->
   <distributionManagement>
       <repository>
           <id>nexus-releases</id>
