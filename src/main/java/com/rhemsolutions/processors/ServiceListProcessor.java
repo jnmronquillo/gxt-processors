@@ -12,6 +12,7 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.PackageElement;
@@ -97,6 +98,11 @@ public class ServiceListProcessor extends AbstractProcessor {
 	private String methodName(String line)
 	{
 	  return Character.toLowerCase(line.charAt(0)) + line.substring(1);
+	}
+	
+	@Override
+	public SourceVersion getSupportedSourceVersion() {
+		return SourceVersion.latest();
 	}
 
 }
