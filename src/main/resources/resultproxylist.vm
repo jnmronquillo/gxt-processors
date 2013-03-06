@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 import com.google.web.bindery.requestfactory.shared.ValueProxy;
-import com.rhem.server.resultbean.${modelName}ListLoadResultBean;
+import ${packageResultBean}.${modelName}ListLoadResultBean;
 import ${fqClassName};
 import com.sencha.gxt.data.shared.loader.ListLoadResult;
 

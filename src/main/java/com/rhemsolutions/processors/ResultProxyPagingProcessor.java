@@ -37,6 +37,7 @@ public class ResultProxyPagingProcessor extends AbstractProcessor {
         String packageName = null;
         String packageResultProxy = null;
         String modelName = null;
+        String packageResultBean = null;
         
 		for (Element e : roundEnv.getElementsAnnotatedWith(ProxyFor.class)) {
 			
@@ -56,6 +57,7 @@ public class ResultProxyPagingProcessor extends AbstractProcessor {
                 
                 packageResultProxy = packageName.replaceFirst("proxy", "resultproxy");
                 
+                packageResultBean = packageResultProxy.replaceFirst("shared.resultproxy", "server.resultbean");
                 
                 if (fqClassName != null) {
 
@@ -76,7 +78,8 @@ public class ResultProxyPagingProcessor extends AbstractProcessor {
                     vc.put("packageResultProxy", packageResultProxy);
                     vc.put("fqClassName", fqClassName);
                     vc.put("modelName", modelName);
-
+                    vc.put("packageResultBean", packageResultBean);
+                    
                     Template vt = ve.getTemplate("resultproxypaging.vm");
                     
                     JavaFileObject jfo = null;

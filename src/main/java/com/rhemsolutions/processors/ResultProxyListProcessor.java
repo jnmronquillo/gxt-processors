@@ -37,6 +37,7 @@ public class ResultProxyListProcessor extends AbstractProcessor {
         String packageName = null;
         String packageResultProxy = null;
         String modelName = null;
+        String packageResultBean = null;
         
 		for (Element e : roundEnv.getElementsAnnotatedWith(ProxyFor.class)) {
 			
@@ -55,6 +56,8 @@ public class ResultProxyListProcessor extends AbstractProcessor {
                 modelName = className.replaceFirst("Proxy", "");
                 
                 packageResultProxy = packageName.replaceFirst("proxy", "resultproxy");
+                
+                packageResultBean = packageResultProxy.replaceFirst("shared.resultproxy", "server.resultbean");
                 
                 
                 if (fqClassName != null) {
@@ -76,6 +79,7 @@ public class ResultProxyListProcessor extends AbstractProcessor {
                     vc.put("packageResultProxy", packageResultProxy);
                     vc.put("fqClassName", fqClassName);
                     vc.put("modelName", modelName);
+                    vc.put("packageResultBean", packageResultBean);
 
                     Template vt = ve.getTemplate("resultproxylist.vm");
                     
