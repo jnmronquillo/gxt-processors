@@ -99,7 +99,7 @@ public class ResultBeanPagingProcessor extends AbstractProcessor {
 	
 	@Override
 	public SourceVersion getSupportedSourceVersion() {
-		return SourceVersion.latest();
+		return SourceVersion.latestSupported();
 	}
 
 }
