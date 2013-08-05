@@ -15,6 +15,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.MirroredTypeException;
 import javax.tools.JavaFileObject;
 
 import org.apache.velocity.Template;
@@ -38,11 +39,26 @@ public class ResultProxyListProcessor extends AbstractProcessor {
         String packageResultProxy = null;
         String modelName = null;
         String packageResultBean = null;
-        
-		for (Element e : roundEnv.getElementsAnnotatedWith(ProxyFor.class)) {
+
+        for (Element e : roundEnv.getElementsAnnotatedWith(ProxyFor.class)) {
 			
 			if (e.getKind() == ElementKind.INTERFACE) {
                 TypeElement classElement = (TypeElement) e;
+                
+            	ProxyFor proxy = e.getAnnotation(ProxyFor.class);
+            	//trick from
+            	//http://blog.retep.org/2009/02/13/getting-class-values-from-annotations-in-an-annotationprocessor/
+            	String locator = null;
+            	try {
+					proxy.locator();
+				} catch (MirroredTypeException mte) {
+					locator = mte.getTypeMirror().toString();
+				}
+            	
+            	if(locator.equals("com.google.web.bindery.requestfactory.shared.Locator")){
+            		continue;
+            	}
+            	
                 PackageElement packageElement = (PackageElement) classElement.getEnclosingElement();
                 packageName = packageElement.getQualifiedName().toString();
                 
